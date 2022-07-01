@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\T_restaurantController;
+use Illuminate\Http\Request;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +18,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+Route::get('/', function () {
+    return view('restaurant');
+});
+Route::resource('t_restaurants',T_restaurantController::class);
+
+Route::get('/', function () {
+    return view('detail');
 });
