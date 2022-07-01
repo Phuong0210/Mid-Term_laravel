@@ -69,97 +69,90 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
-                                                @foreach ($t_restaurants as $res)
-                                                    <form method="post" action="">
-                                                        @csrf
-
-                                                        <div data-mkdf-parallax-speed="1"
-                                                            class="vc_row wpb_row vc_row-fluid mkdf-section mkdf-content-aligment-left"
-                                                            style="">
-                                                            <div class="clearfix mkdf-full-section-inner">
-                                                                <div
-                                                                    class="wpb_column vc_column_container vc_col-sm-12 vc_col-has-fill">
-                                                                    <div class="vc_column-inner vc_custom_1505498075306">
-                                
-                                                                        <div class="wpb_wrapper">
-                                                                            <div
-                                                                                class="vc_separator wpb_content_element vc_separator_align_center vc_sep_width_100 vc_sep_double vc_sep_border_width_2 vc_sep_pos_align_center vc_sep_color_black vc_separator-has-text">
-                                                                                <span
-                                                                                    class="vc_sep_holder vc_sep_holder_l"><span
-                                                                                        class="vc_sep_line"></span></span>
-                                                                                <h4 class="menu-tt">
-                                                                                    {{ $res->category->name }}</h4>
-                                                                                <span
-                                                                                    class="vc_sep_holder vc_sep_holder_r"><span
-                                                                                        class="vc_sep_line"></span></span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
+                                                <div><h3 class="text-center">CƠM</h3></div>
+    
+                                                <div class='row'>
+                                                    @foreach($t_restaurants as $res)
+                                                    @if($res->categories_id=="1")
+                                                    
+                                                    <div class="col-3">
+                                                        <a href="{{route('t_restaurants.show',$res->id)}}" class="text-decoration:none">
+                                                        <img src="/image/{{$res ->image}}" class="img-thumbnail" alt=""></div>
+                                                        <button type="button" class="btn btn-info" value="{{route('t_restaurants.show',$res->id)}}">Detail</button>
+                                                    </a>
+                                                        <div class="col-9 ">
+                                                            <br>
+                                                            <div class="row">
+                                                            <div class="col-8 text-dark"><h3>{{$res->pro_name}}</h3></div>
+                                                            <div class="col-4 text-dark  text-right">{{$res->price}} .vnđ</div>
                                                             </div>
+                                                            <p class='text-dark'>{{$res->description}}</p>
+                                                        
+                                                    </div>
+                                                    
+                                                        
+                                                    @endif
+                                                    @endforeach
+                                                </div>
+                                                <div><h3 class="text-center">BÁNH MÌ</h3></div>
+                                                
+                                                <div class='row'>
+                                                    
+                                                    @foreach($t_restaurants as $res)
+                                                    @if($res->categories_id=="2")
+                                                    <div class="col-6">
+                                                    <a href="{{route('t_restaurants.show',$res->id)}}" class="text-decoration:none">
+                                                        <div class="row">
+                                                        <div class="col-3"><img src="/image/{{$res ->image}}" class="img-thumbnail" alt=""></div>
+                                                        <button type="button" class="btn btn-info" value="{{route('t_restaurants.show',$res->id)}}">Detail</button>
+                                                    </a>
+                                                        <div class="col-9 text-dark">
+                                                            <br>
+                                                            <div class="row">
+                                                                <div class="col-8"><h3>{{$res->pro_name}}</h3></div>
+                                                                <div class="col-4  text-right">{{$res->price}} .vnđ</div>
+                                                            </div>
+                                                            <p>{{$res->description}}</p>
                                                         </div>
-                                                        <div
-                                                            class="hl-food-list vc_row wpb_row vc_row-fluid mkdf-section vc_custom_1447769555653 mkdf-content-aligment-left">
-                                                            <div class="clearfix mkdf-full-section-inner">
-                                                                <div class="wpb_column vc_column_container vc_col-sm-6">
-                                                                    <div class="vc_column-inner ">
-                                                                        <div class="wpb_wrapper">
-                                                                            <div
-                                                                                class="mkdf-menu-list mkdf-ml-with-featured-image">
-                                                                                <ul class="mkdf-ml-holder">
-
-                                                                                    <li class="mkdf-ml-item clearfix">
-                                                                                        <div class="mkdf-ml-item-image">
-                                                                                            <img src="/image/{{ $res['image'] }}"
-                                                                                                class="card-img-top"
-                                                                                                alt="..."
-                                                                                                width="100px">
-                                                                                        </div>
-                                                                                        <div
-                                                                                            class="mkdf-ml-item-content">
-                                                                                            <div
-                                                                                                class="mkdf-ml-top-holder">
-                                                                                                <div
-                                                                                                    class="mkdf-ml-title-holder">
-                                                                                                    <h4
-                                                                                                        class="mkdf-ml-title">
-                                                                                                        <a
-                                                                                                            href="t_restaurants.show">{{ $res['pro_name'] }}</a>
-                                                                                                    </h4>
-                                                                                                </div>
-                                                                                                <div
-                                                                                                    class="mkdf-ml-dots">
-                                                                                                </div>
-                                                                                                <div
-                                                                                                    class="mkdf-ml-price-holder">
-                                                                                                    <h4
-                                                                                                        class="mkdf-ml-price">
-                                                                                                        69,000 ₫
-                                                                                                    </h4>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div
-                                                                                                class="mkdf-ml-bottom-holder clearfix">
-                                                                                                <div
-                                                                                                    class="mkdf-ml-excerpt-holder">
-                                                                                                    <p>{{ $res['description'] }}
-                                                                                                    </p>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </li>
-
-
-
-
-                                                                                </ul>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                    </form>
-                                                @endforeach
+                                                        </div>
+                                                       
+                                                    </div>
+                                                    
+                                                    @endif
+                                                    @endforeach
+                                                    
+                                                    
+                                                </div>
+                                                <div><h3 class="text-center">BÚN PHỞ</h3></div>
+                                                
+                                                <div class="row">
+                                                    
+                                                    @foreach($t_restaurants as $res)
+                                                    @if($res->categories_id=="3")
+                                                    
+                                                    <div class="col-4">
+                                                    <a href="{{route('t_restaurants.show',$res->id)}}" class="text-decoration:none">
+                                                        <div><img src="/image/{{$res ->image}}" style="width:300px;height:250px" class="img-thumbnail" alt=""></div>
+                                                        <button type="button" class="btn btn-info" value="{{route('t_restaurants.show',$res->id)}}">Detail</button>
+                                                    </a>
+                                                        <div class="text-dark">
+                                                            <br>
+                                                            <div class="row">
+                                                                <div class="col-6"><h3>{{$res->pro_name}}</h3></div>
+                                                                <div class="col-6  text-right">{{$res->price}} .vnđ</div>
+                                                            </div>
+                                                            <p>{{$res->description}}</p>
+                                                        </div>
+                                                    
+                                                    </div>
+                                                    
+                                                    
+                                                    @endif
+                                                    @endforeach
+                                                    
+                                                    
+                                                </div>
+                                                
                                             </div>
 </body>
 
