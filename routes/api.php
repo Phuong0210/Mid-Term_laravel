@@ -19,4 +19,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::apiResource('t_restaurants',T_restaurantController::class);
 Route::get('/show',[T_restaurantController::class,'search']);
+Route::get('/category_id', [T_restaurantController::class,'list']);
 

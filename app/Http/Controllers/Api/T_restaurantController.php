@@ -7,7 +7,7 @@ use App\Models\T_restaurant;
 use App\Models\Category;
 use Illuminate\Support\Facades\File;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Support\Facades\DB;
 
 class T_restaurantController extends Controller
 {
@@ -132,6 +132,15 @@ class T_restaurantController extends Controller
                     return response()->json(["status" => "failed", "success" => false, "message" => "Whoops! failed to update."]);
             }
           
+    }
+    public function list(){
+        $t_restaurants= DB::table('t_restaurants')->select(DB::raw('pro_name,count(pro_name) as quantity'))->groupBy('pro_name')->get();
+        if(count( $t_restaurants) > 0) {
+            return response()->json(["status" => "200", "success" => true, "count" => count( $t_restaurants), "data" =>  $t_restaurants]);
+        }
+        else {
+            return response()->json(["status" => "failed", "success" => false, "message" => "Whoops! no record found"]);
+        }
     }
     
 }
