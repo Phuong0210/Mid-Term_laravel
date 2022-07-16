@@ -126,7 +126,7 @@ class T_restaurantController extends Controller
         $t_restaurants= T_restaurant::where('pro_name','like','%' .$request->search. '%')->orWhere('price',$request->search)
         ->get();
                 if($t_restaurants) {            
-                    return response()->json(["status" => "200", "success" => true, "message" => "car record update successfully", "data" => $t_restaurants]);
+                    return response()->json(["status" => "200", "success" => true, "message" => "food record update successfully", "data" => $t_restaurants]);
                 }    
             else {
                     return response()->json(["status" => "failed", "success" => false, "message" => "Whoops! failed to update."]);

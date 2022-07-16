@@ -16,9 +16,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 Route::get('/', function () {
     return view('restaurant');
 });
@@ -27,3 +27,12 @@ Route::resource('t_restaurants',T_restaurantController::class);
 Route::get('/', function () {
     return view('detail');
 });
+// 
+Route::get('/', function () {
+    return view('Banhang.index');
+});
+
+Route::get('/detail', function () {
+    return view('Banhang.detail');
+});
+
